@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ape-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-audit-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-audit-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-gateway-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-note-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-note-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ape-user-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
