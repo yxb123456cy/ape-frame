@@ -4,10 +4,13 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -16,8 +19,10 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @Builder
-@TableName(value ="user")
+@TableName(value = "user")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {
     /**
      * 主键,唯一ID
@@ -58,10 +63,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) that;
-        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId())) && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername())) && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword())) && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
     }
 
     @Override
