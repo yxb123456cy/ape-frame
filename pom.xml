@@ -19,6 +19,7 @@
         <module>ape-audit-service</module>
         <module>ape-note-service</module>
         <module>framework</module>
+        <module>db</module>
     </modules>
 
     <properties>
