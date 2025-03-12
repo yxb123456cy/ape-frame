@@ -1,9 +1,10 @@
 package com.oszero.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
 import com.oszero.entity.Note;
-import com.oszero.service.NoteService;
 import com.oszero.mapper.NoteMapper;
+import com.oszero.service.NoteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @RequiredArgsConstructor
 public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note>
-    implements NoteService{
+    implements NoteService {
     private final NoteMapper mapper;
 }
 

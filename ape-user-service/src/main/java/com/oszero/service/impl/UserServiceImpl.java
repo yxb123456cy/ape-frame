@@ -6,16 +6,18 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.oszero.entity.User;
 import com.oszero.enums.ResponseCodeEnum;
 import com.oszero.exception.BizException;
+import com.oszero.mapper.UserMapper;
 import com.oszero.pojo.dto.UserFindDTO;
 import com.oszero.pojo.dto.UserLoginDTO;
 import com.oszero.pojo.dto.UserRegisterDTO;
 import com.oszero.pojo.vo.UserLoginRespVO;
 import com.oszero.response.Response;
 import com.oszero.service.UserService;
-import com.oszero.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
 
 /**
  * @author Administrator
@@ -24,8 +26,8 @@ import org.springframework.stereotype.Service;
  */
 
 
-@Service
 @Slf4j
+@Component
 @RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     private UserMapper mapper;
