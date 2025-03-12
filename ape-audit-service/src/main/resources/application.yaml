@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: apr-frame-audit-service
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+server:
+  port: 8080
