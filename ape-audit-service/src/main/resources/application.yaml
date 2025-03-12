@@ -1,7 +1,65 @@
 
 spring:
   application:
-    name: apr-frame-audit-service
+    name: ape-frame-audit-service
+  cloud:
+    consul:
+      config:
+        enabled: false   # 取消使用Consul Config
+      host: 117.72.45.14 #consul注册地址
+      port: 8500 #consul注册地址的端口，8500是默认端口
+      discovery:
+        heartbeat:
+          enabled: true
+        enabled: true #启用服务发现
+        instance-id: ${spring.application.name}-${server.port}-${random.long}
+        service-name: ${spring.application.name}
+        port: ${server.port} # 服务端口
+        register: true
+        prefer-ip-address: true
+        deregister: true
+        ip-address: ${spring.cloud.client.ip-address}
+  kafka:
+    producer:
+      acks: 1 # 0-不应答。1-leader 应答。all-所有 leader 和 follower 应答。
+      retries: 3 # 发送失败时，重试发送的次数
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # 消息的 key 的序列化
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer # 消息的 value 的序列化
+    bootstrap-servers: 8.134.14.35:9092
+    consumer:
+      group-id: my-consumer-group
+      auto-offset-reset: earliest # 设置消费者分组最初的消费进度为 earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.oszero.*  # 设置kafka信任包下的所有类;
+    listener:
+      missing-topics-fatal: false # 消费监听接口监听的主题不存在时，默认会报错。所以通过设置为 false ，解决报错
+    template:
+      default-topic: default-topic
+
+  rabbitmq:
+    port: 5672
+    host: 117.72.45.14
+    username: rabbitmq
+    password: rabbitmq
+    #这个配置是保证提供者确保消息推送到交换机中，不管成不成功，都会回调
+    publisher-confirm-type: correlated
+    #保证交换机能把消息推送到队列中
+    publisher-returns: true
+    virtual-host: /
+    #这个配置是保证消费者会消费消息，自动确认
+    listener:
+      simple:
+        default-requeue-rejected: true # 不丢弃
+        acknowledge-mode: auto
+        retry:
+          enabled: true # 开启消费者进行重试
+          max-attempts: 2 # 最大重试次数
+          initial-interval: 1500 # 重试时间间隔
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ape_framework

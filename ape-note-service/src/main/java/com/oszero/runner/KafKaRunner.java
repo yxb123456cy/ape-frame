@@ -20,12 +20,9 @@ public class KafKaRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Note note = Note.builder()
-                .userId(1L)
-                .content("javaee")
-                .id(100L)
-                .build();
-        SendResult<Object, Object> sendResult = kafkaTemplate.send(MQConstants.AUDIT_TOPIC, JSON.toJSONString(note)).join();
+        //向default-topic发送消息; sendDefault
+        Note note = Note.builder().userId(1L).content("javaee").id(100L).build();
+        SendResult<Object, Object> sendResult = kafkaTemplate.sendDefault(JSON.toJSONString(note)).join();
         RecordMetadata recordMetadata = sendResult.getRecordMetadata();
         String topic = recordMetadata.topic();
         int partition = recordMetadata.partition();

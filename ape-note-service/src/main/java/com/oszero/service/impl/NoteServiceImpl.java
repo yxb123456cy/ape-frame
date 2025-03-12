@@ -24,6 +24,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Administrator
  * @description 针对表【note(笔记记录表)】的数据库操作Service实现
@@ -70,7 +73,7 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
         //kafka
         try {
             sendMessageToKafKa(note);
-            sendMessageToRabbitMQ(note);
+            sendMessageToRabbitMQ(userId, note);
         } catch (Exception e) {
             log.error("转发至消息队列出现异常 error:{}", e.getMessage());
         }
@@ -79,8 +82,10 @@ public class NoteServiceImpl extends ServiceImpl<NoteMapper, Note> implements No
     }
 
     //发至rabbitmq;
-    private void sendMessageToRabbitMQ(Note note) {
-        rabbitTemplate.convertAndSend(MQConstants.AUDIT_EXCHANGE, MQConstants.BINDING_KEY, JSON.toJSONString(note));
+    private void sendMessageToRabbitMQ(Long userID, Note note) {
+        Map<Long, String> map = new HashMap<>();
+        map.put(note.getId(), note.getContent());
+        rabbitTemplate.convertAndSend(MQConstants.AUDIT_EXCHANGE, MQConstants.BINDING_KEY,map);
     }
 
     private void sendMessageToKafKa(Note note) {

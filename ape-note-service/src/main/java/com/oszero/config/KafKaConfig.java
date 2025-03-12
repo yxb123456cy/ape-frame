@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class KafKaConfig {
-    @KafkaListener(topics = MQConstants.AUDIT_TOPIC)
+    @KafkaListener(topics ="default-topic")
     public void listener(ConsumerRecord<String, Object> consumerRecord) {
         try {
             Object value = consumerRecord.value();

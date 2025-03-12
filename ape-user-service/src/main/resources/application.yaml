@@ -19,7 +19,7 @@ spring:
         deregister: true
         ip-address: ${spring.cloud.client.ip-address}
   application:
-    name: apr-frame-user-service
+    name: ape-frame-user-service
   data:
     redis:
       database: 5 # Redis 数据库索引（默认为 0）

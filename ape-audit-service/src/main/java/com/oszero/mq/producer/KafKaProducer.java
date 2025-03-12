@@ -8,6 +8,5 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class KafKaProducer {
-    @Resource
-    private TextAuditService textAuditService;
+
 }

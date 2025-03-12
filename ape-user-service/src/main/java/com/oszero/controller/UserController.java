@@ -43,7 +43,7 @@ public class UserController {
     }
 
     //根据ID获取User;
-    @GetMapping("/info")
+    @PostMapping("/info")
     @ApiOperationLog(description = "根据ID获取User")
     public Response<User> getByID(@RequestBody UserFindDTO userFindDTO) {
         return userService.getUserById(userFindDTO);
