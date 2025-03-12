@@ -18,6 +18,7 @@
         <module>ape-user-service</module>
         <module>ape-audit-service</module>
         <module>ape-note-service</module>
+        <module>framework</module>
     </modules>
 
     <properties>

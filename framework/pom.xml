@@ -7,10 +7,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ape-audit-service</artifactId>
+    <artifactId>framework</artifactId>
     <packaging>jar</packaging>
 
-    <name>ape-audit-service</name>
+    <name>framework</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -19,13 +19,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.oszero</groupId>
+            <artifactId>ape-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>com.oszero</groupId>
-            <artifactId>framework</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
 </project>
