@@ -1,6 +1,7 @@
 package com.oszero.controller;
 
-import com.oszero.service.NoteService;
+
+import com.oszero.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,9 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @CrossOrigin("*")
 @RequiredArgsConstructor
-public class NoteController {
-    private final NoteService noteService;
-    //userFeign接口;
-    //查列表;
-    //发布Note;
+public class UserController {
+    private final UserService userService;
+
+    //登录;
+    //注销登录;
+    //注册;
+    //根据ID获取User;
+
+
 }
