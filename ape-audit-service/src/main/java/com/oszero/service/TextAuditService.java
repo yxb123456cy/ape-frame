@@ -1,8 +1,13 @@
 package com.oszero.service;
 
+import com.oszero.entity.Note;
+
+import java.util.Map;
+
 public interface TextAuditService {
+    void textAudit(Note note);
 
-    //文本审核;
+    void textAuditByMap(Map<Long, String> message);
 
-    //审核结果使用消息队列进行异步转发;
+
 }

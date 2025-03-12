@@ -22,6 +22,8 @@ public class RabbitMQConsumer {
     @RabbitListener(queues = {MQConstants.AUDIT_QUEUE})
     @RabbitHandler
     public void AuditQueueListener(Map<Long, String> message) {
+        //Long 键为NoteID;
         log.info("rabbitmq消费消息 message:{}", message);
+        textAuditService.textAuditByMap(message);
     }
 }

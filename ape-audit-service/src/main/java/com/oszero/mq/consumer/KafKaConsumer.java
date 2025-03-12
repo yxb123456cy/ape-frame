@@ -23,6 +23,7 @@ public class KafKaConsumer {
             Note note = JSON.parseObject(value.toString(), Note.class);
             log.info("kafka消费消息 value:{}", note);
             log.info("开始进行文本审核");
+            textAuditService.textAudit(note);
         } catch (Exception e) {
             log.error("kafKa消费异常:{}", e.getMessage());
         }
