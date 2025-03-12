@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: apr-frame-user-service
+    name: apr-frame-note-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ape_framework
@@ -41,7 +41,7 @@ spring:
     charset: UTF-8
     location: classpath:banner.txt
 server:
-  port: 8083
+  port: 8088
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
